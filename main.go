@@ -1,6 +1,9 @@
 package main
 
-func (_ Solution) MoveZeroes(nums []int) []int {
+type Solution struct{}
+
+// my first solution
+func (Solution) MoveZeroes(nums []int) []int {
 	l := len(nums)
 	for i := 0; i < l; i++ {
 		if nums[i] == 0 {
@@ -14,9 +17,22 @@ func (_ Solution) MoveZeroes(nums []int) []int {
 	return nums
 }
 
-type Solution struct{}
+func (Solution) MoveZeroes42(nums []int) []int {
+	zeroCount := 0
 
-func (_ Solution) OptimizedMoveZeros(nums []int) []int {
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			zeroCount++
+			continue
+		}
+
+		nums[i], nums[i-zeroCount] = nums[i-zeroCount], nums[i]
+	}
+
+	return nums
+}
+
+func (Solution) OptimizedMoveZeros(nums []int) []int {
 	n := len(nums)
 	pos := 0
 
