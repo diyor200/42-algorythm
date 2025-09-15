@@ -3,9 +3,10 @@ package main
 type Solution struct{}
 
 func (Solution) SortedSquares(nums []int) []int {
-	var result = make([]int, len(nums))
-	i, j := 0, len(nums)-1
-	pos := j
+	n := len(nums)
+	i, j := 0, n-1
+	pos := n - 1
+	var result = make([]int, n)
 
 	for i <= j {
 		leftSq := nums[i] * nums[i]
