@@ -8,7 +8,7 @@ import (
 
 func TestSolution(t *testing.T) {
 	s := Solution{}
-
-	assert.Equal(t, s, s)
+	arr := []int{-4, -1, 0, 3, 10}
+	assert.Equal(t, []int{0, 1, 9, 16, 100}, s.SortedSquares(arr))
 	t.Log("pass")
 }
