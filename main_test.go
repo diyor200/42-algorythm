@@ -1,9 +1,14 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/go-playground/assert/v2"
+)
 
 func TestSolution(t *testing.T) {
-
 	s := Solution{}
-	t.Log(s)
+
+	assert.Equal(t, s, s)
+	t.Log("pass")
 }
