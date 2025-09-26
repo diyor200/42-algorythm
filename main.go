@@ -3,6 +3,10 @@ package main
 type Solution struct{}
 
 func (Solution) CanConstruct(ransomNote string, magazine string) bool {
+	if len(ransomNote) > len(magazine) {
+		return false
+	}
+
 	var letters = make(map[byte]int8, len(magazine))
 
 	for i := range magazine {
