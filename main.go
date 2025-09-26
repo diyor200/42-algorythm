@@ -3,15 +3,16 @@ package main
 type Solution struct{}
 
 func (Solution) TwoSum(nums []int, target int) []int {
-	set := make(map[int]struct{}, len(nums))
-	res := make([]int, 2)
+	compliments := make(map[int]int, len(nums))
+	res := []int{}
 
 	for i := range nums {
-		if _, ok := set[nums[i]]; ok {
-			continue
+		if v, ok := compliments[nums[i]]; ok {
+			res = append(res, v, i)
+			break
 		}
 
-		set[nums[i]] = struct{}{}
+		compliments[target-nums[i]] = i
 	}
 
 	return res
