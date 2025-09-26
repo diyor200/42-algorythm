@@ -10,15 +10,23 @@ func TestSolution(t *testing.T) {
 	s := Solution{}
 
 	testCases := []struct {
-		name string
-		want int
+		name        string
+		ransomeNote string
+		magazine    string
+		want        bool
 	}{
-		{name: "test", want: 0},
+		{name: "first", ransomeNote: "a", magazine: "b", want: false},
+		{name: "second", ransomeNote: "aa ", magazine: "ab", want: false},
+		{name: "third", ransomeNote: "aa", magazine: "aab", want: true},
+		{name: "third",
+			ransomeNote: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			magazine:    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			want:        true},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s)
+			assert.Equal(t, tt.want, s.CanConstruct(tt.ransomeNote, tt.magazine))
 		})
 	}
 
