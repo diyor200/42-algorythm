@@ -11,14 +11,17 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		want int
+		s    string
+		t    string
+		want bool
 	}{
-		{name: "test", want: 0},
+		{name: "first", s: "anagram", t: "nagaram", want: true},
+		{name: "second", s: "rat", t: "car", want: false},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s)
+			assert.Equal(t, tt.want, s.IsAnagram(tt.s, tt.t))
 		})
 	}
 
