@@ -11,14 +11,16 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		want int
+		word string
+		want string
 	}{
-		{name: "test", want: 0},
+		{name: "first", word: "leet**cod*e", want: "lecoe"},
+		{name: "second", word: "erase*****", want: ""},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s)
+			assert.Equal(t, tt.want, s.RemoveStars(tt.word))
 		})
 	}
 
