@@ -27,7 +27,7 @@ func TestSolution(t *testing.T) {
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s.Count_leaves(tt.root))
+			assert.Equal(t, tt.want, s.InvertTree(tt.root))
 		})
 	}
 
