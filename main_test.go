@@ -11,14 +11,16 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
+		num  int
 		want int
 	}{
-		{name: "test", want: 0},
+		{name: "first", num: 11, want: 3},
+		{name: "second", num: 2, want: 1},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s)
+			assert.Equal(t, tt.want, s.HammingWeight(tt.num))
 		})
 	}
 
