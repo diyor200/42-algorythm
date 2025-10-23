@@ -7,18 +7,19 @@ import (
 )
 
 func TestSolution(t *testing.T) {
-	s := Solution{}
 
 	testCases := []struct {
 		name string
-		want int
+		s, t string
+		want byte
 	}{
-		{name: "test", want: 0},
+		{name: "first", s: "abcd", t: "abcde", want: 'e'},
+		{name: "second", s: "", t: "y", want: 'y'},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, s)
+			assert.Equal(t, tt.want, findTheDifference(tt.s, tt.t))
 		})
 	}
 
