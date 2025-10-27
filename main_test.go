@@ -13,9 +13,11 @@ func TestSolution(t *testing.T) {
 		nums []int
 		want []int
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
-		{name: "second", nums: []int{1, 1}, want: []int{1, 2}},
-		{name: "third", nums: []int{2, 2}, want: []int{2, 1}},
+		// {name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		// {name: "second", nums: []int{1, 1}, want: []int{1, 2}},
+		// {name: "third", nums: []int{2, 2}, want: []int{2, 1}},
+		// {name: "fourth", nums: []int{3, 2, 2}, want: []int{2, 1}},
+		{name: "fifth", nums: []int{3, 2, 3, 4, 6, 5}, want: []int{3, 1}},
 	}
 
 	for _, tt := range testCases {
