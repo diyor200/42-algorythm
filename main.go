@@ -1,33 +1,31 @@
 package main
 
-func sortedArrayToBST(nums []int) *TreeNode {
-	if len(nums) == 0 {
-		return nil
-	}
-
-	n := len(nums)
-	root := &TreeNode{Val: nums[n/2]}
-	arrToBts(nums[:n/2], root.Left)
-	arrToBts(nums[n/2:], root.Right)
-	return root
-}
-func arrToBts(sl []int, node *TreeNode) {
-	if len(sl) == 0 {
-		return
-	}
-
-	if len(sl) == 1 {
-		node.Left = &TreeNode{Val: sl[0]}
-		return
-	}
-
-	node.Left = &TreeNode{Val: sl[0]}
-	node.Right = &TreeNode{Val: sl[1]}
-	arrToBts(sl[2:], node.Right)
-}
+import "fmt"
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func sortedArrayToBST(nums []int) *TreeNode {
+	var helper func(l, r int) *TreeNode
+	helper = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		m := (l + r) / 2
+		root := &TreeNode{Val: nums[m]}
+
+		root.Left = helper(l, m-1)
+		root.Right = helper(m+1, r)
+		return root
+	}
+	return helper(0, len(nums)-1)
+}
+
+func main() {
+	nums := []int{-10, -3, 0, 5, 9}
+	root := sortedArrayToBST(nums)
+	fmt.Println(root)
 }
