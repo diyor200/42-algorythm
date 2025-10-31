@@ -9,16 +9,20 @@ import (
 func TestSolution(t *testing.T) {
 
 	testCases := []struct {
-		name string
-		nums []int
-		want []int
+		name        string
+		nums        []int
+		left, right int
+		want        int
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", nums: []int{-2, 0, 3, -5, 2, -1}, want: 1, left: 0, right: 2},
+		{name: "second", nums: []int{-2, 0, 3, -5, 2, -1}, want: -1, left: 2, right: 5},
+		{name: "first", nums: []int{-2, 0, 3, -5, 2, -1}, want: -3, left: 0, right: 5},
 	}
 
 	for _, tt := range testCases {
+		s := Constructor(tt.nums)
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, s.SumRange(tt.left, tt.right))
 		})
 	}
 
