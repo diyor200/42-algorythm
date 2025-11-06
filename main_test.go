@@ -10,15 +10,39 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		nums []int
-		want []int
+		word string
+		want bool
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{
+			name: "first",
+			word: "A man, a plan, a canal: Panama",
+			want: true,
+		},
+		{
+			name: "second",
+			word: "race a car",
+			want: false,
+		},
+		{
+			name: "third",
+			word: " ",
+			want: true,
+		},
+		{
+			name: "fourth",
+			word: "0P",
+			want: false,
+		},
+		{
+			name: "fifth",
+			word: "ab_a",
+			want: true,
+		},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, isPalindrome(tt.word))
 		})
 	}
 
