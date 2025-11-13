@@ -7,5 +7,5 @@ branch:
 
 push:
 	git add .
-	git commit -m "$(commit)"
+	git commit -m "solution"
 	git push
