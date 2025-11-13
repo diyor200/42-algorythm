@@ -10,15 +10,33 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		nums []int
-		want []int
+		s    string
+		k    int
+		want string
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{
+			name: "first",
+			s:    "abcdefg",
+			k:    2,
+			want: "bacdfeg",
+		},
+		{
+			name: "second",
+			s:    "abcd",
+			k:    2,
+			want: "bacd",
+		},
+		{
+			name: "third",
+			s:    "hyzqyljrnigxvdtneasepfahmtyhlohwxmkqcdfehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqlimjkfnqcqnajmebeddqsgl",
+			k:    39,
+			want: "fdcqkmxwholhytmhafpesaentdvxginrjlyqzyhehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqllgsqddebemjanqcqnfkjmi",
+		},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, reverseStr(tt.s, tt.k))
 		})
 	}
 
