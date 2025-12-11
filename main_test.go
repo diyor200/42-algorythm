@@ -10,15 +10,18 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		nums []int
-		want []int
+		num  int
+		want bool
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", num: 14, want: false},
+		{name: "second", num: 16, want: true},
+		{name: "third", num: 25, want: true},
+		{name: "fourth", num: 9, want: true},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, isPerfectSquare(tt.num))
 		})
 	}
 
