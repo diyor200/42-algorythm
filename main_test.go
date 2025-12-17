@@ -9,16 +9,20 @@ import (
 func TestSolution(t *testing.T) {
 
 	testCases := []struct {
-		name string
-		nums []int
-		want []int
+		name    string
+		letters []byte
+		target  byte
+		want    byte
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", letters: []byte{'c', 'f', 'j'}, target: 'a', want: 'c'},
+		{name: "second", letters: []byte{'c', 'f', 'j'}, target: 'c', want: 'f'},
+		{name: "third", letters: []byte{'x', 'x', 'y', 'y'}, target: 'z', want: 'x'},
+		{name: "fourth", letters: []byte{'e', 'e', 'e', 'k', 'q', 'q', 'q', 'q', 'v', 'v', 'z'}, target: 'q', want: 'v'},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, nextGreatestLetter(tt.letters, tt.target))
 		})
 	}
 
