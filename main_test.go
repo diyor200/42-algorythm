@@ -10,15 +10,17 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		nums []int
-		want []int
+		num  int
+		want int
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", num: 5, want: 2},
+		{name: "second", num: 3, want: 2},
+		{name: "third", num: 8, want: 3},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, arrangeCoins(tt.num))
 		})
 	}
 
