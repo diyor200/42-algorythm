@@ -10,15 +10,19 @@ func TestSolution(t *testing.T) {
 
 	testCases := []struct {
 		name string
-		nums []int
-		want []int
+		n    int
+		want bool
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", n: 2, want: true},
+		{name: "second", n: 3, want: false},
+		{name: "third", n: 4, want: true},
+		{name: "fourth", n: 5, want: false},
+		{name: "fifth", n: 8, want: true},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, divisorGame(tt.n))
 		})
 	}
 
