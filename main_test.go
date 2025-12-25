@@ -9,16 +9,18 @@ import (
 func TestSolution(t *testing.T) {
 
 	testCases := []struct {
-		name string
-		nums []int
-		want []int
+		name        string
+		columnTitle string
+		want        int
 	}{
-		{name: "first", nums: []int{1, 2, 2, 4}, want: []int{2, 3}},
+		{name: "first", columnTitle: "A", want: 1},
+		{name: "second", columnTitle: "AA", want: 27},
+		{name: "third", columnTitle: "ZY", want: 701},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, tt.)
+			assert.Equal(t, tt.want, titleToNumber(tt.columnTitle))
 		})
 	}
 
