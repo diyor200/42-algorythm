@@ -13,14 +13,14 @@ func TestSolution(t *testing.T) {
 		nums []int
 		want int
 	}{
-		{name: "first", nums: []int{1, 7, 3, 6, 5, 6}, want: 3},
-		{name: "second", nums: []int{1, 2, 3}, want: -1},
-		{name: "third", nums: []int{2, 1, -1}, want: 0},
+		{name: "first", nums: []int{-3, 2, -3, 4, 2}, want: 5},
+		{name: "second", nums: []int{1, 2}, want: 1},
+		{name: "third", nums: []int{1, -2, -3}, want: 5},
 	}
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equal(t, tt.want, pivotIndex(tt.nums))
+			assert.Equal(t, tt.want, minStartValue(tt.nums))
 		})
 	}
 

@@ -1,20 +1,21 @@
 package main
 
-// url: https://leetcode.com/problems/find-pivot-index/description/?envType=problem-list-v2&envId=prefix-sum
+// url: https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/
 
-func pivotIndex(nums []int) int {
-	rightSum, leftSum := 0, 0
-	for i := range nums {
-		rightSum += nums[i]
-	}
+func minStartValue(nums []int) int {
+	var startValue int
+	var sum int
+	for i := 0; i < len(nums); i++ {
+		sum += nums[i]
 
-	for i := range nums {
-		if leftSum == rightSum-nums[i] {
-			return i
+		if sum < startValue {
+			startValue = sum
 		}
-		leftSum += nums[i]
-		rightSum -= nums[i]
 	}
 
-	return -1
+	if startValue < 0 {
+		return -1*startValue + 1
+	}
+
+	return 1
 }
